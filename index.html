@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Apollo Healthcare</title>
+
+
+
+<style>
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:Arial,sans-serif;
+
+}
+
+
+
+body{
+
+    background:#f5f8fc;
+
+}
+
+
+
+header{
+
+    background:#0066cc;
+
+    color:white;
+
+    padding:15px 40px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+
+.logo{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    margin-left:20px;
+
+    font-weight:bold;
+
+}
+
+
+
+.hero{
+
+    text-align:center;
+
+    padding:60px 20px;
+
+    background:linear-gradient(to right,#0077cc,#00aaff);
+
+    color:white;
+
+}
+
+
+
+.hero h1{
+
+    font-size:42px;
+
+}
+
+
+
+.hero p{
+
+    margin-top:15px;
+
+    font-size:18px;
+
+}
+
+
+
+.services{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:20px;
+
+    padding:40px;
+
+}
+
+
+
+.card{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+    text-align:center;
+
+}
+
+
+
+.card h2{
+
+    color:#0066cc;
+
+    margin-bottom:10px;
+
+}
+
+
+
+button{
+
+    margin-top:15px;
+
+    background:#0066cc;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 20px;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+}
+
+
+
+footer{
+
+    background:#003366;
+
+    color:white;
+
+    text-align:center;
+
+    padding:20px;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<header>
+
+<div class="logo">Apollo Healthcare</div>
+
+
+
+<nav>
+
+<a href="#">Home</a>
+
+<a href="#">Doctors</a>
+
+<a href="#">Appointments</a>
+
+<a href="#">Health Records</a>
+
+<a href="#">AI Care</a>
+
+<a href="#">Profile</a>
+
+</nav>
+
+</header>
+
+
+
+<section class="hero">
+
+<h1>Your AI Powered Healthcare Partner</h1>
+
+<p>Book doctors, manage reports, monitor your health and get AI assistance.</p>
+
+<button>Book Appointment</button>
+
+</section>
+
+
+
+<section class="services">
+
+
+
+<div class="card">
+
+<h2>🤖 AI Consultation Companion</h2>
+
+<p>Summarizes your symptoms, prepares questions for the doctor, and explains prescriptions.</p>
+
+<button>Open</button>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>📄 Explain My Report</h2>
+
+<p>AI converts medical reports into simple language with important highlights.</p>
+
+<button>View</button>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>📈 Health Timeline</h2>
+
+<p>Shows all your reports, medicines, surgeries, vaccinations, and appointments on one timeline.</p>
+
+<button>View Timeline</button>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>📊 AI Report Comparison</h2>
+
+<p>Compare blood tests, scans, and health reports over time with AI insights.</p>
+
+<button>Compare</button>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>👨‍⚕ Doctor's Advice Tracker</h2>
+
+<p>Track medicines, diet plans, exercise, and follow-up advice from your doctor.</p>
+
+<button>Track</button>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>💊 Medicine Reminder</h2>
+
+<p>Receive reminders to take medicines on time.</p>
+
+<button>Set Reminder</button>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>🩺 AI Symptom Checker</h2>
+
+<p>Enter symptoms and receive possible health insights with urgency guidance.</p>
+
+<button>Check Symptoms</button>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>❤️ Health Score</h2>
+
+<p>AI calculates your overall health score based on reports and lifestyle.</p>
+
+<button>View Score</button>
+
+</div>
+
+
+
+</section>
+
+
+
+<footer>
+
+©️ 2026 Apollo Healthcare | AI Powered Health Platform
+
+</footer>
+
+
+
+</body>
+
+</html>
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Consultation Companion</title>
+
+
+
+<style>
+
+body{
+
+    font-family:Arial,sans-serif;
+
+    background:#f4f8fb;
+
+    margin:0;
+
+    padding:20px;
+
+}
+
+
+
+.container{
+
+    max-width:900px;
+
+    margin:auto;
+
+    background:#fff;
+
+    padding:25px;
+
+    border-radius:10px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+}
+
+
+
+h1{
+
+    color:#0077b6;
+
+    text-align:center;
+
+}
+
+
+
+input,textarea{
+
+    width:100%;
+
+    padding:10px;
+
+    margin-top:8px;
+
+    margin-bottom:15px;
+
+    border:1px solid #ccc;
+
+    border-radius:6px;
+
+    font-size:15px;
+
+}
+
+
+
+button{
+
+    width:100%;
+
+    padding:12px;
+
+    background:#0096c7;
+
+    color:white;
+
+    border:none;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+
+
+button:hover{
+
+    background:#0077b6;
+
+}
+
+
+
+.summary{
+
+    margin-top:25px;
+
+    padding:20px;
+
+    background:#eef8ff;
+
+    border-left:5px solid #0096c7;
+
+    display:none;
+
+}
+
+
+
+.summary h2{
+
+    color:#0077b6;
+
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+
+<div class="container">
+
+
+
+<h1>AI Consultation Companion</h1>
+
+
+
+<label>Patient Name</label>
+
+<input type="text" id="name">
+
+
+
+<label>Diagnosis</label>
+
+<input type="text" id="diagnosis">
+
+
+
+<label>Doctor's Advice</label>
+
+<textarea id="advice"></textarea>
+
+
+
+<label>Medicines</label>
+
+<textarea id="medicine"></textarea>
+
+
+
+<label>Lifestyle Recommendations</label>
+
+<textarea id="lifestyle"></textarea>
+
+
+
+<label>Warning Signs</label>
+
+<textarea id="warning"></textarea>
+
+
+
+<label>Follow-up Date</label>
+
+<input type="date" id="followup">
+
+
+
+<button onclick="generateSummary()">
+
+Generate AI Consultation Summary
+
+</button>
+
+
+
+<div class="summary" id="summary">
+
+<h2>Personalized Consultation Summary</h2>
+
+
+
+<p id="output"></p>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+<script>
+
+
+
+function generateSummary(){
+
+
+
+let name=document.getElementById("name").value;
+
+let diagnosis=document.getElementById("diagnosis").value;
+
+let advice=document.getElementById("advice").value;
+
+let medicine=document.getElementById("medicine").value;
+
+let lifestyle=document.getElementById("lifestyle").value;
+
+let warning=document.getElementById("warning").value;
+
+let followup=document.getElementById("followup").value;
+
+
+
+let summary=`
+
+<h3>Hello ${name}</h3>
+
+
+
+<p><strong>Diagnosis:</strong> ${diagnosis}</p>
+
+
+
+<p><strong>Doctor's Advice:</strong><br>${advice}</p>
+
+
+
+<p><strong>Medicines:</strong><br>${medicine}</p>
+
+
+
+<p><strong>Lifestyle Recommendations:</strong><br>${lifestyle}</p>
+
+
+
+<p><strong>Warning Signs:</strong><br>${warning}</p>
+
+
+
+<p><strong>Follow-up Appointment:</strong> ${followup}</p>
+
+
+
+<hr>
+
+
+
+<h3>AI Patient Summary</h3>
+
+
+
+<p>
+
+You have been diagnosed with <b>${diagnosis}</b>.
+
+Please take your medicines exactly as prescribed and carefully follow your doctor's advice.
+
+Maintain the recommended lifestyle changes and monitor for any warning signs listed above.
+
+Do not miss your follow-up appointment on <b>${followup}</b>.
+
+If your symptoms worsen or you experience any serious warning signs, contact your doctor immediately.
+
+</p>
+
+`;
+
+
+
+document.getElementById("output").innerHTML=summary;
+
+document.getElementById("summary").style.display="block";
+
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Explain My Report</title>
+
+
+
+<style>
+
+body{
+
+    font-family:Arial,Helvetica,sans-serif;
+
+    background:#f4f9ff;
+
+    margin:0;
+
+    padding:20px;
+
+}
+
+
+
+.container{
+
+    max-width:850px;
+
+    margin:auto;
+
+    background:#ffffff;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+
+}
+
+
+
+h1{
+
+    text-align:center;
+
+    color:#0077b6;
+
+}
+
+
+
+label{
+
+    font-weight:bold;
+
+}
+
+
+
+input, textarea{
+
+    width:100%;
+
+    padding:12px;
+
+    margin:8px 0 18px;
+
+    border:1px solid #ccc;
+
+    border-radius:6px;
+
+    font-size:15px;
+
+}
+
+
+
+button{
+
+    width:100%;
+
+    padding:12px;
+
+    background:#0077b6;
+
+    color:white;
+
+    border:none;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+
+
+button:hover{
+
+    background:#005f8c;
+
+}
+
+
+
+.result{
+
+    display:none;
+
+    margin-top:25px;
+
+    padding:20px;
+
+    background:#eef7ff;
+
+    border-left:5px solid #0077b6;
+
+    border-radius:8px;
+
+}
+
+
+
+.good{
+
+    color:green;
+
+    font-weight:bold;
+
+}
+
+
+
+.warning{
+
+    color:#d97706;
+
+    font-weight:bold;
+
+}
+
+
+
+.high{
+
+    color:red;
+
+    font-weight:bold;
+
+}
+
+</style>
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="container">
+
+
+
+<h1>Explain My Report</h1>
+
+
+
+<label>Patient Name</label>
+
+<input type="text" id="name">
+
+
+
+<label>Hemoglobin (g/dL)</label>
+
+<input type="number" id="hb">
+
+
+
+<label>Blood Sugar (mg/dL)</label>
+
+<input type="number" id="sugar">
+
+
+
+<label>Cholesterol (mg/dL)</label>
+
+<input type="number" id="cholesterol">
+
+
+
+<label>Additional Report Notes</label>
+
+<textarea id="notes" rows="4"></textarea>
+
+
+
+<button onclick="explainReport()">
+
+Explain My Report
+
+</button>
+
+
+
+<div class="result" id="result">
+
+<h2>Easy-to-Understand Report</h2>
+
+<div id="output"></div>
+
+</div>
+
+
+
+</div>
+
+
+
+<script>
+
+
+
+function explainReport(){
+
+
+
+let name=document.getElementById("name").value;
+
+let hb=parseFloat(document.getElementById("hb").value);
+
+let sugar=parseFloat(document.getElementById("sugar").value);
+
+let cholesterol=parseFloat(document.getElementById("cholesterol").value);
+
+let notes=document.getElementById("notes").value;
+
+
+
+let hbResult="";
+
+if(hb<12){
+
+hbResult="<span class='high'>Low Hemoglobin</span> - This may indicate anemia. Please discuss with your doctor.";
+
+}
+
+else{
+
+hbResult="<span class='good'>Normal Hemoglobin</span> - Your oxygen-carrying capacity appears healthy.";
+
+}
+
+
+
+let sugarResult="";
+
+if(sugar<70){
+
+sugarResult="<span class='warning'>Low Blood Sugar</span> - Your blood sugar is lower than normal.";
+
+}
+
+else if(sugar<=140){
+
+sugarResult="<span class='good'>Normal Blood Sugar</span> - Your blood sugar is within a healthy range.";
+
+}
+
+else{
+
+sugarResult="<span class='high'>High Blood Sugar</span> - This may require medical evaluation.";
+
+}
+
+
+
+let cholesterolResult="";
+
+if(cholesterol<200){
+
+cholesterolResult="<span class='good'>
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Report Comparison</title>
+
+
+
+<style>
+
+body{
+
+    font-family:Arial,Helvetica,sans-serif;
+
+    background:#f5f9fc;
+
+    margin:0;
+
+    padding:20px;
+
+}
+
+
+
+.container{
+
+    max-width:900px;
+
+    margin:auto;
+
+    background:#fff;
+
+    padding:25px;
+
+    border-radius:10px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+}
+
+
+
+h1{
+
+    text-align:center;
+
+    color:#0077b6;
+
+}
+
+
+
+.section{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.box{
+
+    flex:1;
+
+    min-width:280px;
+
+}
+
+
+
+input{
+
+    width:100%;
+
+    padding:10px;
+
+    margin:8px 0 15px;
+
+    border:1px solid #ccc;
+
+    border-radius:6px;
+
+}
+
+
+
+button{
+
+    width:100%;
+
+    padding:12px;
+
+    background:#0077b6;
+
+    color:white;
+
+    border:none;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+
+
+button:hover{
+
+    background:#005f8c;
+
+}
+
+
+
+.result{
+
+    display:none;
+
+    margin-top:25px;
+
+    background:#eef8ff;
+
+    padding:20px;
+
+    border-left:5px solid #0077b6;
+
+    border-radius:8px;
+
+}
+
+
+
+.good{
+
+    color:green;
+
+    font-weight:bold;
+
+}
+
+
+
+.bad{
+
+    color:red;
+
+    font-weight:bold;
+
+}
+
+
+
+.normal{
+
+    color:#e67e22;
+
+    font-weight:bold;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="container">
+
+
+
+<h1>AI Report Comparison</h1>
+
+
+
+<div class="section">
+
+
+
+<div class="box">
+
+
+
+<h3>Previous Report</h3>
+
+
+
+<label>Blood Sugar (mg/dL)</label>
+
+<input type="number" id="oldSugar">
+
+
+
+<label>Cholesterol (mg/dL)</label>
+
+<input type="number" id="oldChol">
+
+
+
+<label>Hemoglobin (g/dL)</label>
+
+<input type="number" id="oldHb">
+
+
+
+</div>
+
+
+
+<div class="box">
+
+
+
+<h3>New Report</h3>
+
+
+
+<label>Blood Sugar (mg/dL)</label>
+
+<input type="number" id="newSugar">
+
+
+
+<label>Cholesterol (mg/dL)</label>
+
+<input type="number" id="newChol">
+
+
+
+<label>Hemoglobin (g/dL)</label>
+
+<input type="number" id="newHb">
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+<button onclick="compareReports()">
+
+Compare Reports
+
+</button>
+
+
+
+<div class="result" id="result">
+
+<h2>AI Health Progress Report</h2>
+
+<div id="output"></div>
+
+</div>
+
+
+
+</div>
+
+
+
+<script>
+
+
+
+function status(oldValue,newValue,reverse=false){
+
+
+
+if(reverse){
+
+
+
+if(newValue<oldValue)
+
+return "<span class='good'>Improved ✅</span>";
+
+
+
+if(newValue>oldValue)
+
+return "<span class='bad'>Needs Attention ⚠️</span>";
+
+
+
+return "<span class='normal'>No Change</span>";
+
+
+
+}
+
+
+
+else{
+
+
+
+if(newValue>oldValue)
+
+return "<span class='good'>Improved ✅</span>";
+
+
+
+if(newValue<oldValue)
+
+return "<span class='bad'>Needs Attention ⚠️</span>";
+
+
+
+return "<span class='normal'>No Change</span>";
+
+
+
+}
+
+
+
+}
+
+
+
+function compareReports(){
+
+
+
+let oldSugar=parseFloat(document.getElementById("oldSugar").value);
+
+let newSugar=parseFloat(document.getElementById("newSugar").value);
