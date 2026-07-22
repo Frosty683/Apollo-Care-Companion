@@ -9,286 +9,268 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --primary:#0066cc;
-  --primary-dark:#004a99;
-  --primary-light:#e6f1ff;
-  --primary-50:#f0f7ff;
-  --primary-100:#d9ebff;
-  --primary-600:#0058b4;
-  --accent:#00aaff;
-  --accent-dark:#0090e0;
-  --ink:#0f2540;
-  --ink-soft:#3a4f6b;
+  --primary:#0a4d9c;
+  --primary-dark:#06306b;
+  --primary-50:#eaf3ff;
+  --primary-100:#d4e7ff;
+  --primary-200:#a9cfff;
+  --accent:#00b4d8;
+  --accent-dark:#0090b8;
+  --ink:#0c1f3a;
+  --ink-soft:#3d5170;
   --muted:#6b7d96;
   --line:#e3e9f2;
-  --bg:#f5f8fc;
+  --bg:#f4f8fd;
+  --bg-alt:#eef4fb;
   --card:#ffffff;
   --success:#16a34a;
-  --success-bg:#e8f8ef;
   --warning:#d97706;
-  --warning-bg:#fff4e6;
   --error:#dc2626;
-  --error-bg:#fdeaea;
-  --radius:18px;
+  --radius:20px;
   --radius-sm:12px;
-  --shadow-sm:0 2px 8px rgba(15,37,64,.06);
-  --shadow:0 12px 32px rgba(15,37,64,.08);
-  --shadow-lg:0 24px 60px rgba(15,37,64,.14);
-  --transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s cubic-bezier(.2,.8,.2,1), background .25s ease, border-color .25s ease;
+  --shadow-sm:0 2px 8px rgba(12,31,58,.06);
+  --shadow:0 12px 36px rgba(12,31,58,.09);
+  --shadow-lg:0 28px 64px rgba(12,31,58,.16);
+  --glass:rgba(255,255,255,.72);
+  --glass-border:rgba(255,255,255,.5);
+  --transition:transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s cubic-bezier(.2,.8,.2,1), background .3s ease, border-color .3s ease;
 }
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',system-ui,-apple-system,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
 /* ---------- Navbar ---------- */
 header{
   position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;justify-content:space-between;align-items:center;
   padding:16px 6%;
-  background:rgba(255,255,255,.85);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line);
-  transition:padding .3s ease, box-shadow .3s ease;
+  background:rgba(244,248,253,.82);
+  backdrop-filter:blur(18px) saturate(1.4);
+  -webkit-backdrop-filter:blur(18px) saturate(1.4);
+  border-bottom:1px solid rgba(227,233,242,.7);
+  transition:padding .3s ease, background .3s ease, box-shadow .3s ease;
 }
-header.scrolled{padding:10px 6%;box-shadow:var(--shadow-sm)}
-.brand{display:flex;align-items:center;gap:12px;cursor:pointer}
+header.scrolled{
+  padding:11px 6%;background:rgba(255,255,255,.92);
+  box-shadow:0 4px 24px rgba(12,31,58,.07);
+}
+.brand{display:flex;align-items:center;gap:13px;cursor:pointer;text-decoration:none}
 .brand .mark{
-  width:42px;height:42px;border-radius:13px;
+  width:44px;height:44px;border-radius:13px;
   background:linear-gradient(135deg,var(--primary),var(--accent));
-  display:grid;place-items:center;color:#fff;font-weight:800;font-size:20px;
-  box-shadow:0 6px 16px rgba(0,102,204,.35);
-  transition:transform .4s cubic-bezier(.2,.8,.2,1);
+  display:grid;place-items:center;color:#fff;font-weight:800;font-size:21px;
+  box-shadow:0 8px 20px rgba(10,77,156,.4);
+  transition:transform .45s cubic-bezier(.2,.8,.2,1);
 }
-.brand:hover .mark{transform:rotate(-6deg) scale(1.06)}
-.brand .name{font-size:19px;font-weight:800;color:var(--ink);letter-spacing:-.3px;line-height:1}
+.brand:hover .mark{transform:rotate(-8deg) scale(1.08)}
+.brand .name{font-size:19px;font-weight:800;color:var(--ink);letter-spacing:-.4px;line-height:1}
 .brand .name span{color:var(--primary)}
-.brand .tag{font-size:11px;color:var(--muted);font-weight:500;margin-top:3px;letter-spacing:.4px}
-nav{display:flex;align-items:center;gap:4px}
+.brand .tag{font-size:10.5px;color:var(--muted);font-weight:500;margin-top:3px;letter-spacing:.6px;text-transform:uppercase}
+nav{display:flex;align-items:center;gap:2px}
 nav a{
   color:var(--ink-soft);text-decoration:none;font-weight:600;font-size:14px;
-  padding:9px 14px;border-radius:10px;transition:all .25s ease;position:relative;
+  padding:9px 15px;border-radius:10px;transition:all .25s ease;position:relative;
 }
 nav a:hover{color:var(--primary);background:var(--primary-50)}
 nav a.active{color:var(--primary);background:var(--primary-100)}
 nav a.active::after{
-  content:"";position:absolute;left:14px;right:14px;bottom:4px;height:2px;
-  background:var(--primary);border-radius:2px;
+  content:"";position:absolute;left:15px;right:15px;bottom:4px;height:2.5px;
+  background:linear-gradient(90deg,var(--primary),var(--accent));border-radius:2px;
 }
 .menu-btn{display:none;background:none;border:none;cursor:pointer;color:var(--ink);padding:8px}
 .menu-btn svg{width:26px;height:26px}
 
 /* ---------- Hero ---------- */
 .hero{
-  min-height:92vh;display:grid;align-items:center;
-  padding:130px 6% 70px;
+  min-height:94vh;display:grid;align-items:center;
+  padding:140px 6% 80px;position:relative;overflow:hidden;
   background:
-    radial-gradient(1100px 600px at 85% -10%, rgba(0,170,255,.18), transparent 60%),
-    radial-gradient(900px 500px at 5% 110%, rgba(0,102,204,.14), transparent 60%),
-    linear-gradient(180deg,#f7fbff 0%, #eef5ff 100%);
-  position:relative;overflow:hidden;
+    radial-gradient(1000px 580px at 82% -8%, rgba(0,180,216,.16), transparent 60%),
+    radial-gradient(900px 480px at 4% 108%, rgba(10,77,156,.13), transparent 60%),
+    linear-gradient(175deg,#f7fbff 0%, #e9f2fb 100%);
 }
 .hero::before{
-  content:"";position:absolute;top:-120px;right:-120px;width:420px;height:420px;
-  background:radial-gradient(circle, rgba(0,102,204,.10), transparent 70%);border-radius:50%;
+  content:"";position:absolute;top:-140px;right:-100px;width:440px;height:440px;
+  background:radial-gradient(circle,rgba(10,77,156,.10),transparent 70%);border-radius:50%;
   animation:floaty 9s ease-in-out infinite;
 }
 .hero::after{
-  content:"";position:absolute;bottom:-160px;left:-80px;width:360px;height:360px;
-  background:radial-gradient(circle, rgba(0,170,255,.10), transparent 70%);border-radius:50%;
-  animation:floaty 11s ease-in-out infinite reverse;
+  content:"";position:absolute;bottom:-180px;left:-60px;width:380px;height:380px;
+  background:radial-gradient(circle,rgba(0,180,216,.10),transparent 70%);border-radius:50%;
+  animation:floaty 12s ease-in-out infinite reverse;
 }
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(28px)}}
-.hero-inner{max-width:760px;position:relative;z-index:2}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(32px)}}
+.hero-inner{max-width:780px;position:relative;z-index:2}
 .hero .badge{
-  display:inline-flex;align-items:center;gap:8px;
-  background:#fff;border:1px solid var(--primary-100);
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--glass);border:1px solid var(--glass-border);
   color:var(--primary);font-weight:600;font-size:13px;
-  padding:8px 16px;border-radius:999px;box-shadow:var(--shadow-sm);margin-bottom:24px;
+  padding:9px 18px;border-radius:999px;box-shadow:var(--shadow-sm);margin-bottom:26px;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   animation:fadeUp .8s ease both;
 }
-.hero .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(0,180,216,.25);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
 .hero h1{
-  font-size:clamp(34px,5.4vw,58px);font-weight:800;line-height:1.08;letter-spacing:-1.2px;
-  color:var(--ink);margin-bottom:22px;animation:fadeUp .8s ease .1s both;
+  font-size:clamp(34px,5.6vw,60px);font-weight:800;line-height:1.06;letter-spacing:-1.4px;
+  color:var(--ink);margin-bottom:24px;animation:fadeUp .8s ease .1s both;
 }
 .hero h1 span{
   background:linear-gradient(120deg,var(--primary),var(--accent));
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
 }
 .hero p{
-  font-size:clamp(16px,1.4vw,20px);color:var(--ink-soft);max-width:580px;margin-bottom:34px;
+  font-size:clamp(16px,1.4vw,20px);color:var(--ink-soft);max-width:600px;margin-bottom:38px;
   animation:fadeUp .8s ease .2s both;
 }
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s ease .3s both}
+.hero-actions{display:flex;gap:15px;flex-wrap:wrap;animation:fadeUp .8s ease .3s both}
 .btn{
-  display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:15px;
-  padding:14px 26px;border-radius:12px;border:none;cursor:pointer;text-decoration:none;
+  display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px;
+  padding:15px 28px;border-radius:13px;border:none;cursor:pointer;text-decoration:none;
   transition:var(--transition);font-family:inherit;
 }
 .btn-primary{
   background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;
-  box-shadow:0 10px 24px rgba(0,102,204,.35);
+  box-shadow:0 12px 28px rgba(10,77,156,.38);
 }
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(0,102,204,.45)}
-.btn-ghost{background:#fff;color:var(--primary);border:1px solid var(--primary-100);box-shadow:var(--shadow-sm)}
-.btn-ghost:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-.btn-sm{padding:11px 20px;font-size:14px;border-radius:10px}
-.hero-stats{
-  display:flex;gap:34px;margin-top:54px;flex-wrap:wrap;
-  animation:fadeUp .8s ease .4s both;
+.btn-primary:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(10,77,156,.48)}
+.btn-ghost{
+  background:var(--glass);color:var(--primary);border:1px solid var(--primary-100);
+  box-shadow:var(--shadow-sm);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
 }
-.stat .num{font-size:28px;font-weight:800;color:var(--primary);line-height:1}
-.stat .label{font-size:13px;color:var(--muted);font-weight:500;margin-top:6px}
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.btn-ghost:hover{transform:translateY(-4px);box-shadow:var(--shadow);background:#fff}
+.btn-sm{padding:11px 22px;font-size:14px;border-radius:11px}
+.hero-stats{display:flex;gap:38px;margin-top:58px;flex-wrap:wrap;animation:fadeUp .8s ease .4s both}
+.stat .num{font-size:30px;font-weight:800;color:var(--primary);line-height:1}
+.stat .label{font-size:13px;color:var(--muted);font-weight:500;margin-top:7px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
 /* ---------- Sections ---------- */
-section{padding:80px 6%}
-.section-head{text-align:center;max-width:680px;margin:0 auto 52px}
+section{padding:84px 6%}
+.section-head{text-align:center;max-width:680px;margin:0 auto 56px}
 .section-head .kicker{
-  color:var(--primary);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--primary);font-weight:700;font-size:12.5px;letter-spacing:1.8px;text-transform:uppercase;
 }
-.section-head h2{font-size:clamp(28px,3.6vw,40px);font-weight:800;letter-spacing:-.8px;margin:10px 0 12px}
+.section-head h2{font-size:clamp(28px,3.8vw,42px);font-weight:800;letter-spacing:-1px;margin:12px 0 14px}
 .section-head p{color:var(--ink-soft);font-size:17px}
 
 /* ---------- Feature Cards ---------- */
-.services{padding-top:20px}
+.services{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-alt) 100%);padding-top:30px}
 .cards{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:26px;
+  max-width:1200px;margin:0 auto;
 }
 .card{
   background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-  padding:30px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;
-  transition:var(--transition);opacity:0;transform:translateY(24px);
+  padding:34px 30px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;
+  transition:var(--transition);text-decoration:none;color:inherit;display:block;
+  opacity:0;transform:translateY(28px);
 }
 .card.in{opacity:1;transform:translateY(0)}
 .card::before{
   content:"";position:absolute;inset:0;border-radius:var(--radius);
-  background:linear-gradient(135deg, rgba(0,102,204,.05), rgba(0,170,255,.05));
+  background:linear-gradient(135deg,rgba(10,77,156,.06),rgba(0,180,216,.06));
   opacity:0;transition:opacity .35s ease;
 }
-.card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:var(--primary-100)}
+.card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg);border-color:var(--primary-200)}
 .card:hover::before{opacity:1}
 .card .icon{
-  width:58px;height:58px;border-radius:15px;display:grid;place-items:center;margin-bottom:20px;
-  background:linear-gradient(135deg,var(--primary-50),var(--primary-100));font-size:26px;
-  transition:transform .4s cubic-bezier(.2,.8,.2,1);
+  width:62px;height:62px;border-radius:16px;display:grid;place-items:center;margin-bottom:22px;
+  background:linear-gradient(135deg,var(--primary-50),var(--primary-100));font-size:28px;
+  transition:transform .45s cubic-bezier(.2,.8,.2,1);
 }
-.card:hover .icon{transform:scale(1.08) rotate(-4deg)}
-.card h3{font-size:20px;font-weight:700;color:var(--ink);margin-bottom:10px;position:relative;z-index:1}
-.card p{color:var(--ink-soft);font-size:15px;margin-bottom:22px;position:relative;z-index:1}
-.card .btn{position:relative;z-index:1}
+.card:hover .icon{transform:scale(1.1) rotate(-5deg)}
+.card h3{font-size:20px;font-weight:700;color:var(--ink);margin-bottom:11px;position:relative;z-index:1}
+.card p{color:var(--ink-soft);font-size:15px;margin-bottom:24px;position:relative;z-index:1}
+.card .link{
+  display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:14px;color:var(--primary);
+  position:relative;z-index:1;transition:gap .25s ease;
+}
+.card:hover .link{gap:13px}
+.card .link::after{content:"→";font-size:16px}
 
-/* ---------- Feature Views (cards/tools) ---------- */
-.view{display:none;animation:fadeIn .4s ease both}
-.view.active{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-.panel{
-  max-width:920px;margin:0 auto;background:var(--card);border:1px solid var(--line);
-  border-radius:var(--radius);padding:38px;box-shadow:var(--shadow);
+/* ---------- How it works ---------- */
+.how{background:var(--bg);padding-top:84px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px;max-width:1100px;margin:0 auto}
+.step{
+  text-align:center;padding:30px 24px;border-radius:var(--radius);
+  background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow-sm);
+  transition:var(--transition);
 }
-.panel-head{text-align:center;margin-bottom:30px}
-.panel-head .ph-icon{
-  width:64px;height:64px;border-radius:18px;margin:0 auto 16px;
-  background:linear-gradient(135deg,var(--primary),var(--accent));display:grid;place-items:center;
-  font-size:28px;color:#fff;box-shadow:0 10px 24px rgba(0,102,204,.3);
+.step:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.step .num{
+  width:48px;height:48px;border-radius:14px;margin:0 auto 18px;
+  background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;
+  display:grid;place-items:center;font-weight:800;font-size:20px;
+  box-shadow:0 8px 20px rgba(10,77,156,.3);
 }
-.panel-head h2{font-size:28px;font-weight:800;letter-spacing:-.6px}
-.panel-head p{color:var(--ink-soft);margin-top:8px}
-.field{margin-bottom:20px}
-.field label{display:block;font-weight:600;font-size:14px;color:var(--ink);margin-bottom:8px}
-.field input,.field textarea,.field select{
-  width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;
-  font-size:15px;font-family:inherit;color:var(--ink);background:#fbfdff;
-  transition:border-color .25s ease, box-shadow .25s ease;
-}
-.field input:focus,.field textarea:focus,.field select:focus{
-  outline:none;border-color:var(--primary);box-shadow:0 0 0 4px rgba(0,102,204,.12);background:#fff;
-}
-.field textarea{resize:vertical;min-height:90px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
-.form-grid .sub h3{
-  font-size:15px;font-weight:700;color:var(--primary);margin-bottom:16px;
-  padding-bottom:10px;border-bottom:2px solid var(--primary-50);
-}
-.btn-block{width:100%;justify-content:center;margin-top:8px}
+.step h3{font-size:17px;font-weight:700;margin-bottom:8px}
+.step p{font-size:14px;color:var(--ink-soft)}
 
-/* Output boxes */
-.result{
-  display:none;margin-top:30px;padding:26px;border-radius:var(--radius-sm);
-  background:var(--primary-50);border-left:5px solid var(--primary);animation:fadeIn .4s ease both;
+/* ---------- CTA banner ---------- */
+.cta{
+  max-width:1080px;margin:0 auto 84px;padding:56px 6%;border-radius:28px;text-align:center;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark) 60%,var(--accent-dark));
+  position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(10,77,156,.32);
 }
-.result.show{display:block}
-.result h2{color:var(--primary);margin-bottom:14px;font-size:21px}
-.result h3{color:var(--ink);margin:16px 0 6px;font-size:17px}
-.result p{margin-bottom:10px;color:var(--ink-soft)}
-.result hr{border:none;border-top:1px solid var(--primary-100);margin:18px 0}
-.good{color:var(--success);font-weight:700}
-.warning{color:var(--warning);font-weight:700}
-.high,.bad{color:var(--error);font-weight:700}
-.normal{color:var(--warning);font-weight:700}
-
-/* Timeline */
-.timeline{position:relative;padding-left:30px;margin-top:10px}
-.timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:3px;background:var(--primary-100);border-radius:3px}
-.tl-item{position:relative;padding:0 0 26px 26px}
-.tl-item::before{
-  content:"";position:absolute;left:-26px;top:4px;width:16px;height:16px;border-radius:50%;
-  background:#fff;border:3px solid var(--primary);box-shadow:0 0 0 4px var(--primary-50);
+.cta::before{
+  content:"";position:absolute;top:-60%;right:-10%;width:380px;height:380px;
+  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);border-radius:50%;
 }
-.tl-item .tl-date{font-size:12px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.6px}
-.tl-item .tl-title{font-size:16px;font-weight:700;color:var(--ink);margin:3px 0 4px}
-.tl-item .tl-desc{font-size:14px;color:var(--ink-soft)}
-
-/* Advice tracker list */
-.advice-list{display:flex;flex-direction:column;gap:14px;margin-top:6px}
-.advice-item{
-  display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);
-  border-radius:var(--radius-sm);padding:16px 18px;transition:var(--transition);
-}
-.advice-item:hover{border-color:var(--primary-100);box-shadow:var(--shadow-sm)}
-.advice-item .ai-check{
-  width:24px;height:24px;border-radius:8px;border:2px solid var(--line);flex-shrink:0;cursor:pointer;
-  display:grid;place-items:center;transition:var(--transition);margin-top:2px;
-}
-.advice-item.done .ai-check{background:var(--success);border-color:var(--success)}
-.advice-item.done .ai-check::after{content:"✓";color:#fff;font-size:13px;font-weight:800}
-.advice-item.done .ai-text{text-decoration:line-through;color:var(--muted)}
-.advice-item .ai-text{font-size:15px;color:var(--ink)}
-.advice-item .ai-type{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);margin-bottom:2px;display:block}
-.empty-hint{text-align:center;color:var(--muted);font-size:14px;padding:20px}
+.cta h2{font-size:clamp(24px,3vw,34px);font-weight:800;color:#fff;margin-bottom:14px;position:relative;z-index:1}
+.cta p{color:rgba(255,255,255,.85);font-size:17px;max-width:520px;margin:0 auto 28px;position:relative;z-index:1}
+.cta .btn-primary{background:#fff;color:var(--primary);box-shadow:0 10px 28px rgba(0,0,0,.18)}
+.cta .btn-primary:hover{background:#f0f7ff;transform:translateY(-4px)}
 
 /* ---------- Footer ---------- */
 footer{
-  background:linear-gradient(135deg,#0a2540,#0f3a6b);color:#fff;
-  text-align:center;padding:46px 20px;margin-top:40px;
+  background:linear-gradient(160deg,#06182e,#0a2748);color:#fff;
+  padding:54px 6% 30px;
 }
-footer .f-brand{font-size:20px;font-weight:800;margin-bottom:8px}
-footer .f-brand span{color:var(--accent)}
-footer p{color:rgba(255,255,255,.7);font-size:14px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto}
+.footer-brand .f-name{font-size:22px;font-weight:800;margin-bottom:12px}
+.footer-brand .f-name span{color:var(--accent)}
+.footer-brand p{color:rgba(255,255,255,.6);font-size:14px;max-width:280px}
+.footer-col h4{font-size:14px;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:.8px;color:rgba(255,255,255,.5)}
+.footer-col a{display:block;color:rgba(255,255,255,.75);text-decoration:none;font-size:14px;margin-bottom:10px;transition:color .25s ease}
+.footer-col a:hover{color:var(--accent)}
+.footer-bottom{
+  max-width:1200px;margin:36px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+}
+.footer-bottom p{color:rgba(255,255,255,.5);font-size:13px}
+.footer-bottom .soc{display:flex;gap:10px}
+.footer-bottom .soc a{
+  width:36px;height:36px;border-radius:10px;display:grid;place-items:center;
+  background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);text-decoration:none;font-size:15px;
+  transition:var(--transition);
+}
+.footer-bottom .soc a:hover{background:var(--primary);color:#fff;transform:translateY(-3px)}
 
 /* ---------- Responsive ---------- */
 @media(max-width:860px){
   nav{
-    position:fixed;top:70px;left:0;right:0;flex-direction:column;align-items:stretch;
-    background:#fff;padding:14px 6%;gap:4px;border-bottom:1px solid var(--line);
-    box-shadow:var(--shadow);transform:translateY(-140%);transition:transform .35s ease;
+    position:fixed;top:68px;left:0;right:0;flex-direction:column;align-items:stretch;
+    background:rgba(255,255,255,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    padding:14px 6%;gap:4px;border-bottom:1px solid var(--line);
+    box-shadow:var(--shadow);transform:translateY(-150%);transition:transform .35s ease;
   }
   nav.open{transform:translateY(0)}
-  nav a{padding:13px 14px}
+  nav a{padding:13px 15px}
   .menu-btn{display:block}
-  .hero{min-height:auto;padding:120px 6% 50px}
-  .hero-stats{gap:24px}
-  .form-row,.form-grid{grid-template-columns:1fr;gap:20px}
-  .panel{padding:26px}
-  section{padding:56px 6%}
+  .hero{min-height:auto;padding:120px 6% 56px}
+  .hero-stats{gap:26px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:30px}
+  .footer-brand{grid-column:1/-1}
+  section{padding:60px 6%}
+  .cta{margin-bottom:60px;padding:44px 6%}
 }
 @media(max-width:520px){
   .brand .tag{display:none}
-  .hero-stats{gap:18px}
-  .stat .num{font-size:22px}
+  .hero-stats{gap:20px}
+  .stat .num{font-size:24px}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
 }
 </style>
 </head>
@@ -296,20 +278,20 @@ footer p{color:rgba(255,255,255,.7);font-size:14px}
 
 <!-- Navbar -->
 <header id="header">
-  <div class="brand" onclick="goHome()">
+  <a class="brand" href="index.html">
     <div class="mark">A</div>
     <div>
       <div class="name">Apollo<span>Care</span></div>
-      <div class="tag">AI HEALTH COMPANION</div>
+      <div class="tag">AI Health Companion</div>
     </div>
-  </div>
+  </a>
   <nav id="nav">
-    <a href="#" data-nav="home" class="active" onclick="showView('home',this)">Home</a>
-    <a href="#" data-nav="timeline" onclick="showView('timeline',this)">Timeline</a>
-    <a href="#" data-nav="consultation" onclick="showView('consultation',this)">AI Care</a>
-    <a href="#" data-nav="report" onclick="showView('report',this)">Reports</a>
-    <a href="#" data-nav="comparison" onclick="showView('comparison',this)">Compare</a>
-    <a href="#" data-nav="advice" onclick="showView('advice',this)">Advice</a>
+    <a href="index.html" class="active">Home</a>
+    <a href="consultation.html">AI Consultation</a>
+    <a href="report.html">Explain Report</a>
+    <a href="timeline.html">Timeline</a>
+    <a href="comparison.html">Compare Reports</a>
+    <a href="advice.html">Doctor's Advice</a>
   </nav>
   <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" onclick="toggleMenu()">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -317,14 +299,14 @@ footer p{color:rgba(255,255,255,.7);font-size:14px}
 </header>
 
 <!-- Hero -->
-<section class="hero view active" id="view-home">
+<section class="hero">
   <div class="hero-inner">
     <span class="badge"><span class="dot"></span> AI-Powered Healthcare Platform</span>
     <h1>Your AI-Powered <span>Healthcare Partner</span>, reimagined.</h1>
-    <p>Book doctors, manage reports, monitor your health timeline, and get instant AI assistance — all in one elegant, secure dashboard built for modern care.</p>
+    <p>Summarize consultations, decode medical reports, track your health timeline, compare lab results over time, and follow your doctor's advice — all in one elegant, secure dashboard built for modern care.</p>
     <div class="hero-actions">
-      <a href="#" class="btn btn-primary" onclick="showView('consultation',document.querySelector('[data-nav=consultation]'));return false">Start AI Consultation →</a>
-      <a href="#" class="btn btn-ghost" onclick="showView('report',document.querySelector('[data-nav=report]'));return false">Explain My Report</a>
+      <a href="consultation.html" class="btn btn-primary">Start AI Consultation →</a>
+      <a href="report.html" class="btn btn-ghost">Explain My Report</a>
     </div>
     <div class="hero-stats">
       <div class="stat"><div class="num">5</div><div class="label">AI Care Modules</div></div>
@@ -335,327 +317,135 @@ footer p{color:rgba(255,255,255,.7);font-size:14px}
 </section>
 
 <!-- Feature Cards -->
-<section class="services view" id="view-services">
+<section class="services">
   <div class="section-head">
     <div class="kicker">Care Modules</div>
     <h2>Everything you need, in one dashboard</h2>
     <p>Five intelligent modules that turn your medical data into clear, actionable guidance.</p>
   </div>
   <div class="cards">
-    <div class="card">
+    <a class="card" href="consultation.html">
       <div class="icon">🤖</div>
       <h3>AI Consultation Companion</h3>
-      <p>Summarizes your symptoms, prepares questions for the doctor, and explains prescriptions.</p>
-      <a href="#" class="btn btn-primary btn-sm" onclick="showView('consultation',document.querySelector('[data-nav=consultation]'));return false">Open</a>
-    </div>
-    <div class="card">
+      <p>Summarizes your symptoms, prepares questions for the doctor, and explains prescriptions in plain language.</p>
+      <span class="link">Open Module</span>
+    </a>
+    <a class="card" href="report.html">
       <div class="icon">📄</div>
       <h3>Explain My Report</h3>
-      <p>AI converts medical reports into simple language with important highlights.</p>
-      <a href="#" class="btn btn-primary btn-sm" onclick="showView('report',document.querySelector('[data-nav=report]'));return false">View</a>
-    </div>
-    <div class="card">
+      <p>AI converts complex medical reports and lab values into simple language with important highlights.</p>
+      <span class="link">Explain Report</span>
+    </a>
+    <a class="card" href="timeline.html">
       <div class="icon">📈</div>
       <h3>Health Timeline</h3>
-      <p>Shows all your reports, medicines, surgeries, vaccinations, and appointments on one timeline.</p>
-      <a href="#" class="btn btn-primary btn-sm" onclick="showView('timeline',document.querySelector('[data-nav=timeline]'));return false">View Timeline</a>
-    </div>
-    <div class="card">
+      <p>Visualize all your reports, medicines, surgeries, vaccinations, and appointments on one timeline.</p>
+      <span class="link">View Timeline</span>
+    </a>
+    <a class="card" href="comparison.html">
       <div class="icon">📊</div>
       <h3>AI Report Comparison</h3>
-      <p>Compare blood tests, scans, and health reports over time with AI insights.</p>
-      <a href="#" class="btn btn-primary btn-sm" onclick="showView('comparison',document.querySelector('[data-nav=comparison]'));return false">Compare</a>
-    </div>
-    <div class="card">
+      <p>Compare blood tests, scans, and health reports over time with AI-generated insights and trends.</p>
+      <span class="link">Compare Reports</span>
+    </a>
+    <a class="card" href="advice.html">
       <div class="icon">👨‍⚕️</div>
       <h3>Doctor's Advice Tracker</h3>
-      <p>Track medicines, diet plans, exercise, and follow-up advice from your doctor.</p>
-      <a href="#" class="btn btn-primary btn-sm" onclick="showView('advice',document.querySelector('[data-nav=advice]'));return false">Track</a>
+      <p>Track medicines, diet plans, exercise routines, and follow-up advice from your doctor in one place.</p>
+      <span class="link">Track Advice</span>
+    </a>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="how">
+  <div class="section-head">
+    <div class="kicker">How It Works</div>
+    <h2>Care in three simple steps</h2>
+    <p>No complicated setup. Just enter your data and let AI handle the rest.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="num">1</div>
+      <h3>Enter Your Data</h3>
+      <p>Input your symptoms, lab values, or doctor's advice into the relevant module.</p>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <h3>AI Analyzes Instantly</h3>
+      <p>Our AI engine processes your data and generates clear, personalized insights.</p>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <h3>Act With Confidence</h3>
+      <p>Follow the easy-to-understand guidance and track your health progress over time.</p>
     </div>
   </div>
 </section>
 
-<!-- AI Consultation Companion -->
-<section class="view" id="view-consultation">
-  <div class="panel">
-    <div class="panel-head">
-      <div class="ph-icon">🤖</div>
-      <h2>AI Consultation Companion</h2>
-      <p>Generate a personalized summary of your consultation in seconds.</p>
-    </div>
-    <div class="field"><label>Patient Name</label><input type="text" id="name"></div>
-    <div class="field"><label>Diagnosis</label><input type="text" id="diagnosis"></div>
-    <div class="form-row">
-      <div class="field"><label>Doctor's Advice</label><textarea id="advice"></textarea></div>
-      <div class="field"><label>Medicines</label><textarea id="medicine"></textarea></div>
-    </div>
-    <div class="form-row">
-      <div class="field"><label>Lifestyle Recommendations</label><textarea id="lifestyle"></textarea></div>
-      <div class="field"><label>Warning Signs</label><textarea id="warning"></textarea></div>
-    </div>
-    <div class="field"><label>Follow-up Date</label><input type="date" id="followup"></div>
-    <button class="btn btn-primary btn-block" onclick="generateSummary()">Generate AI Consultation Summary</button>
-    <div class="result" id="summary">
-      <h2>Personalized Consultation Summary</h2>
-      <div id="output"></div>
-    </div>
-  </div>
-</section>
-
-<!-- Explain My Report -->
-<section class="view" id="view-report">
-  <div class="panel">
-    <div class="panel-head">
-      <div class="ph-icon">📄</div>
-      <h2>Explain My Report</h2>
-      <p>Turn confusing lab values into clear, color-coded guidance.</p>
-    </div>
-    <div class="field"><label>Patient Name</label><input type="text" id="rptName"></div>
-    <div class="form-row">
-      <div class="field"><label>Hemoglobin (g/dL)</label><input type="number" id="hb"></div>
-      <div class="field"><label>Blood Sugar (mg/dL)</label><input type="number" id="sugar"></div>
-    </div>
-    <div class="field"><label>Cholesterol (mg/dL)</label><input type="number" id="cholesterol"></div>
-    <div class="field"><label>Additional Report Notes</label><textarea id="notes" rows="4"></textarea></div>
-    <button class="btn btn-primary btn-block" onclick="explainReport()">Explain My Report</button>
-    <div class="result" id="result">
-      <h2>Easy-to-Understand Report</h2>
-      <div id="outputReport"></div>
-    </div>
-  </div>
-</section>
-
-<!-- Health Timeline -->
-<section class="view" id="view-timeline">
-  <div class="panel">
-    <div class="panel-head">
-      <div class="ph-icon">📈</div>
-      <h2>Health Timeline</h2>
-      <p>All your reports, medicines, surgeries, vaccinations, and appointments in one view.</p>
-    </div>
-    <div class="timeline" id="timelineList"></div>
-  </div>
-</section>
-
-<!-- AI Report Comparison -->
-<section class="view" id="view-comparison">
-  <div class="panel">
-    <div class="panel-head">
-      <div class="ph-icon">📊</div>
-      <h2>AI Report Comparison</h2>
-      <p>Compare two reports side-by-side and let AI highlight your progress.</p>
-    </div>
-    <div class="form-grid">
-      <div class="sub">
-        <h3>Previous Report</h3>
-        <div class="field"><label>Blood Sugar (mg/dL)</label><input type="number" id="oldSugar"></div>
-        <div class="field"><label>Cholesterol (mg/dL)</label><input type="number" id="oldChol"></div>
-        <div class="field"><label>Hemoglobin (g/dL)</label><input type="number" id="oldHb"></div>
-      </div>
-      <div class="sub">
-        <h3>New Report</h3>
-        <div class="field"><label>Blood Sugar (mg/dL)</label><input type="number" id="newSugar"></div>
-        <div class="field"><label>Cholesterol (mg/dL)</label><input type="number" id="newChol"></div>
-        <div class="field"><label>Hemoglobin (g/dL)</label><input type="number" id="newHb"></div>
-      </div>
-    </div>
-    <button class="btn btn-primary btn-block" onclick="compareReports()">Compare Reports</button>
-    <div class="result" id="cmpResult">
-      <h2>AI Health Progress Report</h2>
-      <div id="cmpOutput"></div>
-    </div>
-  </div>
-</section>
-
-<!-- Doctor's Advice Tracker -->
-<section class="view" id="view-advice">
-  <div class="panel">
-    <div class="panel-head">
-      <div class="ph-icon">👨‍⚕️</div>
-      <h2>Doctor's Advice Tracker</h2>
-      <p>Track medicines, diet, exercise, and follow-up advice. Tap to mark done.</p>
-    </div>
-    <div class="form-row">
-      <div class="field">
-        <label>Type</label>
-        <select id="adviceType">
-          <option>Medicine</option><option>Diet</option><option>Exercise</option><option>Follow-up</option>
-        </select>
-      </div>
-      <div class="field"><label>Advice / Instruction</label><input type="text" id="adviceInput" placeholder="e.g. Take Metformin 500mg after dinner"></div>
-    </div>
-    <button class="btn btn-primary btn-block" onclick="addAdvice()">Add to Tracker</button>
-    <div class="advice-list" id="adviceList" style="margin-top:24px"></div>
-  </div>
-</section>
+<!-- CTA banner -->
+<div class="cta">
+  <h2>Ready to take control of your health?</h2>
+  <p>Start with an AI consultation and get a personalized summary in seconds — no waiting, no confusion.</p>
+  <a href="consultation.html" class="btn btn-primary">Get Started Now →</a>
+</div>
 
 <!-- Footer -->
 <footer>
-  <div class="f-brand">Apollo<span>Care</span> Companion</div>
-  <p>© 2026 Apollo Healthcare · AI-Powered Health Platform · HackSprint 2026</p>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="f-name">Apollo<span>Care</span> Companion</div>
+      <p>AI-powered healthcare companion that simplifies your medical journey — from consultation to recovery.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Modules</h4>
+      <a href="consultation.html">AI Consultation</a>
+      <a href="report.html">Explain Report</a>
+      <a href="timeline.html">Health Timeline</a>
+    </div>
+    <div class="footer-col">
+      <h4>Tools</h4>
+      <a href="comparison.html">Report Comparison</a>
+      <a href="advice.html">Advice Tracker</a>
+    </div>
+    <div class="footer-col">
+      <h4>Project</h4>
+      <a href="index.html">Home</a>
+      <a href="#">About</a>
+      <a href="#">Privacy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Apollo Healthcare · HackSprint 2026 · For educational use only</p>
+    <div class="soc">
+      <a href="#" aria-label="GitHub">GH</a>
+      <a href="#" aria-label="Twitter">X</a>
+      <a href="#" aria-label="LinkedIn">in</a>
+    </div>
+  </div>
 </footer>
 
 <script>
-/* ---------- Navigation ---------- */
-const VIEWS=["home","services","consultation","report","timeline","comparison","advice"];
-function showView(name,el){
-  document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
-  if(name==="home"){document.getElementById("view-home").classList.add("active");document.getElementById("view-services").classList.add("active");}
-  else{document.getElementById("view-"+name).classList.add("active");window.scrollTo({top:0,behavior:"smooth"});}
-  document.querySelectorAll("nav a").forEach(a=>a.classList.remove("active"));
-  if(el)el.classList.add("active");
-  else{const m=document.querySelector('[data-nav="'+name+'"]');if(m)m.classList.add("active");}
-  closeMenu();
-}
-function goHome(){showView("home",document.querySelector('[data-nav=home]'))}
-function toggleMenu(){document.getElementById("nav").classList.toggle("open")}
-function closeMenu(){document.getElementById("nav").classList.remove("open")}
+/* Navbar: sticky shadow on scroll */
+window.addEventListener("scroll",function(){
+  document.getElementById("header").classList.toggle("scrolled",window.scrollY>24);
+});
 
-/* ---------- Sticky nav shadow ---------- */
-window.addEventListener("scroll",function(){document.getElementById("header").classList.toggle("scrolled",window.scrollY>20)});
-
-/* ---------- Card reveal on scroll ---------- */
-const io=new IntersectionObserver(function(entries){entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("in")})},{threshold:.15});
-document.querySelectorAll(".card").forEach(c=>io.observe(c));
-
-/* ---------- AI Consultation Companion ---------- */
-function generateSummary(){
-  let name=document.getElementById("name").value;
-  let diagnosis=document.getElementById("diagnosis").value;
-  let advice=document.getElementById("advice").value;
-  let medicine=document.getElementById("medicine").value;
-  let lifestyle=document.getElementById("lifestyle").value;
-  let warning=document.getElementById("warning").value;
-  let followup=document.getElementById("followup").value;
-  let summary=`
-    <h3>Hello ${name}</h3>
-    <p><strong>Diagnosis:</strong> ${diagnosis}</p>
-    <p><strong>Doctor's Advice:</strong><br>${advice}</p>
-    <p><strong>Medicines:</strong><br>${medicine}</p>
-    <p><strong>Lifestyle Recommendations:</strong><br>${lifestyle}</p>
-    <p><strong>Warning Signs:</strong><br>${warning}</p>
-    <p><strong>Follow-up Appointment:</strong> ${followup}</p>
-    <hr>
-    <h3>AI Patient Summary</h3>
-    <p>You have been diagnosed with <b>${diagnosis}</b>. Please take your medicines exactly as prescribed and carefully follow your doctor's advice. Maintain the recommended lifestyle changes and monitor for any warning signs listed above. Do not miss your follow-up appointment on <b>${followup}</b>. If your symptoms worsen or you experience any serious warning signs, contact your doctor immediately.</p>
-  `;
-  document.getElementById("output").innerHTML=summary;
-  document.getElementById("summary").classList.add("show");
-}
-
-/* ---------- Explain My Report ---------- */
-function explainReport(){
-  let name=document.getElementById("rptName").value;
-  let hb=parseFloat(document.getElementById("hb").value);
-  let sugar=parseFloat(document.getElementById("sugar").value);
-  let cholesterol=parseFloat(document.getElementById("cholesterol").value);
-  let notes=document.getElementById("notes").value;
-  let hbResult="";
-  if(hb<12){hbResult="<span class='high'>Low Hemoglobin</span> - This may indicate anemia. Please discuss with your doctor.";}
-  else{hbResult="<span class='good'>Normal Hemoglobin</span> - Your oxygen-carrying capacity appears healthy.";}
-  let sugarResult="";
-  if(sugar<70){sugarResult="<span class='warning'>Low Blood Sugar</span> - Your blood sugar is lower than normal.";}
-  else if(sugar<=140){sugarResult="<span class='good'>Normal Blood Sugar</span> - Your blood sugar is within a healthy range.";}
-  else{sugarResult="<span class='high'>High Blood Sugar</span> - This may require medical evaluation.";}
-  let cholesterolResult="";
-  if(cholesterol<200){cholesterolResult="<span class='good'>Normal Cholesterol</span> - Your cholesterol level is within a healthy range.";}
-  else if(cholesterol<=239){cholesterolResult="<span class='warning'>Borderline Cholesterol</span> - Consider dietary improvements and consult your doctor.";}
-  else{cholesterolResult="<span class='high'>High Cholesterol</span> - This may increase cardiovascular risk. Please consult your doctor.";}
-  let html=`
-    <h3>Hello ${name}</h3>
-    <p><strong>Hemoglobin:</strong> ${hbResult}</p>
-    <p><strong>Blood Sugar:</strong> ${sugarResult}</p>
-    <p><strong>Cholesterol:</strong> ${cholesterolResult}</p>
-    ${notes?`<hr><p><strong>Additional Notes:</strong> ${notes}</p>`:""}
-    <hr>
-    <h3>AI Summary</h3>
-    <p>Based on your values, focus on the flagged areas and follow up with your doctor if any value is outside the normal range. A balanced diet, regular exercise, and timely medication can help keep your numbers in check.</p>
-  `;
-  document.getElementById("outputReport").innerHTML=html;
-  document.getElementById("result").classList.add("show");
-}
-
-/* ---------- AI Report Comparison ---------- */
-function status(oldValue,newValue,reverse){
-  if(reverse){
-    if(newValue<oldValue)return "<span class='good'>Improved ✅</span>";
-    if(newValue>oldValue)return "<span class='bad'>Needs Attention ⚠️</span>";
-    return "<span class='normal'>No Change</span>";
-  }else{
-    if(newValue>oldValue)return "<span class='good'>Improved ✅</span>";
-    if(newValue<oldValue)return "<span class='bad'>Needs Attention ⚠️</span>";
-    return "<span class='normal'>No Change</span>";
+/* Mobile menu toggle */
+function toggleMenu(){document.getElementById("nav").classList.toggle("open");}
+document.addEventListener("click",function(e){
+  var nav=document.getElementById("nav");
+  var btn=document.getElementById("menuBtn");
+  if(nav.classList.contains("open")&&!nav.contains(e.target)&&!btn.contains(e.target)){
+    nav.classList.remove("open");
   }
-}
-function compareReports(){
-  let oldSugar=parseFloat(document.getElementById("oldSugar").value);
-  let newSugar=parseFloat(document.getElementById("newSugar").value);
-  let oldChol=parseFloat(document.getElementById("oldChol").value);
-  let newChol=parseFloat(document.getElementById("newChol").value);
-  let oldHb=parseFloat(document.getElementById("oldHb").value);
-  let newHb=parseFloat(document.getElementById("newHb").value);
-  let sugarStatus=status(oldSugar,newSugar,true);
-  let cholStatus=status(oldChol,newChol,true);
-  let hbStatus=status(oldHb,newHb,false);
-  let html=`
-    <p><strong>Blood Sugar:</strong> ${oldSugar} → ${newSugar} mg/dL &nbsp; ${sugarStatus}</p>
-    <p><strong>Cholesterol:</strong> ${oldChol} → ${newChol} mg/dL &nbsp; ${cholStatus}</p>
-    <p><strong>Hemoglobin:</strong> ${oldHb} → ${newHb} g/dL &nbsp; ${hbStatus}</p>
-    <hr>
-    <h3>AI Insight</h3>
-    <p>Your health trends between reports are summarized above. Values marked "Improved" show positive progress. Items needing attention should be discussed with your doctor at your next visit.</p>
-  `;
-  document.getElementById("cmpOutput").innerHTML=html;
-  document.getElementById("cmpResult").classList.add("show");
-}
+});
 
-/* ---------- Health Timeline ---------- */
-const timelineData=[
-  {date:"Jan 2026",title:"Annual Health Checkup",desc:"Full body checkup — all vitals within normal range."},
-  {date:"Feb 2026",title:"Vaccination",desc:"Influenza vaccine administered at Apollo Clinic."},
-  {date:"Mar 2026",title:"Blood Test Report",desc:"Hemoglobin 13.2 g/dL, Blood Sugar 92 mg/dL — healthy."},
-  {date:"Apr 2026",title:"Doctor Consultation",desc:"Routine follow-up. Advised continued diet and exercise."},
-  {date:"May 2026",title:"Medicine Course Started",desc:"Prescribed a 14-day course of vitamins."},
-  {date:"Jun 2026",title:"Follow-up Appointment",desc:"Reviewed progress. All markers stable. Next review in 3 months."}
-];
-(function renderTimeline(){
-  let list=document.getElementById("timelineList");
-  if(!list)return;
-  list.innerHTML=timelineData.map(t=>`
-    <div class="tl-item">
-      <div class="tl-date">${t.date}</div>
-      <div class="tl-title">${t.title}</div>
-      <div class="tl-desc">${t.desc}</div>
-    </div>`).join("");
-})();
-
-/* ---------- Doctor's Advice Tracker ---------- */
-const adviceItems=[
-  {type:"Medicine",text:"Take Metformin 500mg twice daily after meals",done:false},
-  {type:"Diet",text:"Low-sugar diet; avoid processed foods",done:true},
-  {type:"Exercise",text:"30-minute brisk walk every morning",done:false},
-  {type:"Follow-up",text:"Review blood sugar report on 15 Jul 2026",done:false}
-];
-function renderAdvice(){
-  let list=document.getElementById("adviceList");
-  if(!list)return;
-  if(adviceItems.length===0){list.innerHTML='<div class="empty-hint">No advice tracked yet. Add one above.</div>';return;}
-  list.innerHTML=adviceItems.map((a,i)=>`
-    <div class="advice-item ${a.done?"done":""}" onclick="toggleAdvice(${i})">
-      <div class="ai-check"></div>
-      <div class="ai-text"><span class="ai-type">${a.type}</span>${a.text}</div>
-    </div>`).join("");
-}
-function addAdvice(){
-  let type=document.getElementById("adviceType").value;
-  let text=document.getElementById("adviceInput").value;
-  if(!text.trim())return;
-  adviceItems.push({type:type,text:text,done:false});
-  document.getElementById("adviceInput").value="";
-  renderAdvice();
-}
-function toggleAdvice(i){adviceItems[i].done=!adviceItems[i].done;renderAdvice();}
-renderAdvice();
+/* Card reveal on scroll */
+var io=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add("in");});
+},{threshold:.15});
+document.querySelectorAll(".card").forEach(function(c){io.observe(c);});
 </script>
 </body>
 </html>
